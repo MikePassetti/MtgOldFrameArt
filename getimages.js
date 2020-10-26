@@ -1,7 +1,14 @@
 var cardlist;
-var cardimages =[];
+var cardimages = [];
 var modal = document.querySelector(".modal"); 
 var closebutton = document.querySelector(".close-button");
+
+class Card {
+    constructor(name, image) {
+        this.cardName = name;
+        this.image = image;
+    }
+}
 
 // get cardlist data and display card images
 async function getCardList () {
@@ -16,37 +23,38 @@ async function getCardList () {
 
 // display card images
 function displayCardImage () {
-    cardlist.data.forEach(card => {
+    cardlist.data.forEach(card => {   
         cardimages += 
         `
-        <img class="index-image" src="${card.image_uris.png}" alt="${card.name}" onClick="toggleModal()" width="180rem" height="220rem">
+        <img class="index-image" src="${card.image_uris.png}" alt="${card.name}" onclick="toggleModal()" width="180rem" height="220rem">
         `
     });
     document.querySelector('.cards').innerHTML = cardimages;
 }
 
-// display detailed card image
 function toggleModal () {
     modal.classList.toggle("show-modal");
-    document.querySelector('#modal-image').src = cardlist.data[0].image_uris.png;
+    //document.querySelector("#modal-image").src = 
 }
 
 closebutton.addEventListener('click', toggleModal);
 
 
-// create card class in order to get to the card properties - name and image uri
-/*class Card {
-    constructor(name, image) {
-        this.cardName = cardlist.data[0].name;
-        this.image = cardlist.data[0].image_uris.png;
+/*function detailedCard () {
+    modal.classList.toggle("show-modal");
+    let image = document.querySelectorAll(".index-image");
+    image.onclick = function() {
+        document.querySelector('#modal-image').src = this.src;
     }
 }*/
 
-// iterate through the cardlist and assign these properties
-
-
-
-
+// so what if i map cardlist so as to assign the cardlist props to particular cards... 
+/*function mapCardList () {
+    cardlist.data.map(card => {
+        card = new Card (card.name, card.image_uris.png);
+        cardimages.push(card);
+    })
+}*/
 
 // constructor func for Person objects
 /*function Person(first, last, age, eye) {
@@ -67,26 +75,11 @@ closebutton.addEventListener('click', toggleModal);
 // create a person object
 // var myFather = new Person("John", "Doe", 50, "blue");
 
-// var card = new Card ("${cardlist.name}", "${cardlist.image}")
-
 // Display age
 /*document.getElementById("demo").innerHTML =
 "My father is " + myFather.age + ".";*/
 
 // document.querySelector("#modal-image").src = card.image;
-
-/*function mapCardList () {
-    cardlist.data.map(card => {
-        card = [card.name, card.image_uris.png]
-        console.log(card);
-    })
-}*/
-
-
-
-
-
-
 
 
 
