@@ -1,0 +1,20 @@
+{
+  "name": "mtgoldframeart",
+  "version": "1.0.0",
+  "description": "website for magic the gathering cards with old borders",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikePassetti/MtgOldFrameArt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikePassetti/MtgOldFrameArt/issues"
+  },
+  "homepage": "https://github.com/MikePassetti/MtgOldFrameArt#readme"
+}
