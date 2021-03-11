@@ -1,7 +1,6 @@
-import http from 'http';
-import path from 'path';
-import fs from 'fs';
-import { ENOENT } from 'node:constants';
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
 
 const server = http.createServer((req, res) => {
     
@@ -13,7 +12,7 @@ const server = http.createServer((req, res) => {
     );
 
     // file extension
-    let extname = path.extname(filepath);
+    let extname = path.extname(filePath);
 
     // initial content type
     let contentType = 'text/html';
@@ -40,7 +39,7 @@ const server = http.createServer((req, res) => {
     // read file
     fs.readFile(filePath, (err, content) => {
         if(err) {
-            if(err.code = ENOENT) {
+            if(err.code === 404) {
                 // page not found
                 fs.readFile(path.join(__dirname, 'public', '404.html'),
                 (err, content) => {
@@ -62,4 +61,4 @@ const server = http.createServer((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => console.log(`Server running on ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

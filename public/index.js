@@ -36,6 +36,7 @@ function toggleModal() {
 closebutton.addEventListener('click', toggleModal);
 
 
+// not really part of the code just trying out classes :)
 class Card {
     constructor(name, image) {
         this.name = name
